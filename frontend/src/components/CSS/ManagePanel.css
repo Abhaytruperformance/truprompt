@@ -1,0 +1,124 @@
+.managePanel {
+    padding: var(--space-6);
+    color: var(--text-primary);
+    font-family: 'Inter';
+}
+
+.manageList {
+    list-style: none;
+    padding: 0;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin-bottom: 0;
+}
+
+.manageList li {
+    padding: var(--space-1) 0;
+}
+
+.manageForm input, .manageForm select,
+.manageTable select, .manageTable input {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-control);
+    padding: 6px 10px;
+}
+
+.manageTableWrap {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.manageTable {
+    border-collapse: collapse;
+    margin-top: var(--space-3);
+}
+
+.manageTable th, .manageTable td {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--border-hairline);
+    white-space: nowrap;
+    color: var(--text-primary);
+}
+
+.manageTable th {
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-xs);
+}
+
+.manageTable tbody tr {
+    transition: background-color 120ms ease;
+}
+.manageTable tbody tr:hover {
+    background-color: var(--control-hover);
+}
+
+/* Responsive by priority (UX principle 6): essential columns + actions
+   always visible; secondary/tertiary columns drop first at narrower
+   widths, rather than the whole table just scrolling. Semantic classes,
+   not nth-child -- survives column reordering. */
+@media (max-width: 1023px) {
+    .manageTable .col-tertiary { display: none; }
+}
+@media (max-width: 767px) {
+    .manageTable .col-secondary { display: none; }
+}
+
+.manageTable .promptCell {
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.manageTable input {
+    width: 120px;
+}
+
+.tagsMultiSelect {
+    min-height: 60px;
+    min-width: 100px;
+}
+
+.statusBreakdown {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    font-weight: var(--font-weight-normal);
+}
+
+.mcpConnectorInfo {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-hairline);
+}
+
+.mcpConnectorLabel {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    margin-bottom: var(--space-2);
+}
+
+.mcpConnectorUrl {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-control);
+    padding: 6px 10px;
+    word-break: break-all;
+}
+
+.codeSnippet {
+    flex: 1;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-control);
+    padding: 10px 12px;
+    font-size: var(--font-sm);
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin: 0;
+}

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+
+:root{
+    overflow-x: hidden;
+}
+body{
+    background-color: var(--bg-page) !important;
+}
+
+.swal2-popup.swal2-modal{
+    border-radius: var(--radius-modal);
+    border: 1px solid var(--border-hairline);
+    background: var(--bg-surface-raised);
+    box-shadow: var(--shadow-overlay);
+    animation: modalMotionIn 200ms var(--ease-settle) !important;
+}
+div:where(.swal2-container) div:where(.swal2-html-container), div:where(.swal2-container) h2:where(.swal2-title){
+    color: var(--text-primary) !important;
+}
+
+button.swal2-confirm.swal2-styled {
+    color: var(--text-on-accent);
+    font-family: Inter;
+    font-size: var(--font-sm);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115%;
+    background-color: var(--accent);
+    border-radius: var(--radius-pill);
+}
+
+.customModal .modal-content{
+    border-radius: var(--radius-modal);
+    border: 1px solid var(--border-hairline);
+    background: var(--bg-surface-raised);
+    box-shadow: var(--shadow-overlay);
+    color: var(--text-primary);
+    animation: modalMotionIn 200ms var(--ease-settle);
+}
+
+.customModal .modal-footer button{
+    color: var(--text-on-accent);
+    font-family: 'Inter';
+    font-size: var(--font-sm);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115%;
+    border-radius: var(--radius-pill);
+}
+.customModal .modal-header button{
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.customModal .SaveBtn{
+    background: var(--accent);
+    border: none;
+    &:hover{
+        background: var(--accent-hover);
+    }
+}
+
+.customModal .form-check-input:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .swal2-popup.swal2-modal, .customModal .modal-content {
+        animation: none !important;
+    }
+}
+
+.btnOffcanvasClose{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    filter: invert(1);
+}
+
+.NoPromptFoundImage{
+    width: 500px;
+    max-width: 100%;
+
+}
+
+.navDiv{
+    padding: var(--space-10) var(--space-6) var(--space-5) !important;
+    background-color: var(--bg-page);
+}

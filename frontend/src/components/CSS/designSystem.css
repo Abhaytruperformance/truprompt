@@ -1,0 +1,254 @@
+/* TruPrompt design system v2.0 -- dark theme is the default and only visual
+   identity for this phase. Any new screen should reuse these tokens/utility
+   classes unless there's a documented reason not to.
+
+   Elevation model (name every surface against this, don't invent shadows/
+   borders ad hoc):
+     Level 0 -- page:        --bg-page, no border, no shadow
+     Level 1 -- section:     inherits parent bg, hairline border ONLY when
+                              separation is actually needed (e.g. a table
+                              header row) -- not applied by default
+     Level 2 -- interactive: --bg-surface + --border-hairline, no shadow --
+                              the default "thing you can click/read" surface
+     Level 3 -- overlay:     --bg-surface-raised + --shadow-overlay, no
+                              border -- reserved for things actually floating
+                              above the document (modals, popovers). An
+                              active sidebar nav item is NOT Level 3. */
+
+:root {
+  --bg-page: #111214;
+  --bg-sidebar: #0B0C0E;
+  --bg-surface: #191B1E;
+  --bg-surface-raised: #202327;
+  --accent: #FF5A24;
+  --accent-hover: #e64d1a;
+  --accent-soft: rgba(255, 90, 36, 0.12);
+  --text-primary: #F5F6F7;
+  --text-secondary: #A7ABB0;
+  --text-muted: rgba(167, 171, 176, 0.7);
+  --text-on-accent: #FFFFFF;
+  --border-hairline: rgba(245, 246, 247, 0.10);
+  --border-default: var(--border-hairline);
+  --border-hover: rgba(245, 246, 247, 0.18);
+  --border-focus: var(--accent);
+  --focus-ring: var(--accent);
+  --control-hover: rgba(245, 246, 247, 0.06);
+  --control-active: rgba(245, 246, 247, 0.10);
+  --control-disabled: rgba(245, 246, 247, 0.04);
+  --shadow-overlay: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --status-success: #22C55E;
+  --status-warning: #F59E0B;
+  --status-danger: #EF4444;
+  --status-info: #8B5CF6;
+
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-modal: 16px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Type roles -- Outfit stays narrow (page titles, major stat numbers,
+     empty states) so it reads as a deliberate display face, not a second
+     body font. Everything else, including routine section headers and the
+     generating moment, is Inter. */
+  --font-page-title: 26px;
+  --font-section-title: 18px;
+  --font-md: 16px;
+  --font-base: 14px;
+  --font-sm: 13px;
+  --font-xs: 12px;
+  --font-micro: 11px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.15;
+  --line-height-normal: 1.5;
+
+  --ease-settle: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ---- Motion primitives ----
+   Scoped to their own classes for reduced-motion, not a global wildcard --
+   a blanket `*` selector risks breaking Bootstrap/SweetAlert's own
+   transition-dependent JS (transitionend-driven collapse/offcanvas logic). */
+
+@keyframes panelEnter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.panelEnter {
+  animation: panelEnter 180ms var(--ease-settle);
+}
+
+@keyframes modalMotionIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.modalMotion {
+  animation: modalMotionIn 200ms var(--ease-settle);
+}
+
+@keyframes resultEnter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.resultEnter {
+  animation: resultEnter 200ms var(--ease-settle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelEnter, .modalMotion, .resultEnter,
+  .btn-primary, .btn-secondary, .btn-danger, .btn-ghost,
+  .pill, .navItem, .topPromptCard, .card--elevated, .statCard {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+}
+.card--compact { padding: var(--space-4); }
+.card--elevated { border-color: var(--accent); }
+.card--elevated:hover, .statCard:hover { transform: translateY(-1px); }
+
+.cardTitle {
+  color: var(--text-primary);
+  font-family: 'Inter';
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-4);
+}
+
+.cardEmptyState {
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--space-6) 0;
+  font-size: var(--font-base);
+  font-family: 'Inter';
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-xs);
+  font-family: 'Inter';
+  transition: background-color 150ms ease;
+}
+.pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pill--success { background: rgba(34, 197, 94, 0.12); color: var(--status-success); }
+.pill--warning { background: rgba(245, 158, 11, 0.12); color: var(--status-warning); }
+.pill--danger { background: rgba(239, 68, 68, 0.12); color: var(--status-danger); }
+.pill--info { background: rgba(139, 92, 246, 0.12); color: var(--status-info); }
+
+.statCardsRow {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+.statCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  padding: var(--space-4) var(--space-6);
+  min-width: 140px;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+}
+.statCardIcon { font-size: var(--font-md); margin-bottom: var(--space-2); }
+.statCardNumber { font-size: var(--font-page-title); font-weight: var(--font-weight-bold); color: var(--text-primary); font-family: 'Outfit'; }
+.statCardLabel { color: var(--text-secondary); font-size: var(--font-sm); font-family: 'Inter'; }
+
+/* Button hierarchy -- named roles instead of ad hoc per-file button colors */
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: var(--radius-control);
+  padding: 8px 18px;
+  font-weight: var(--font-weight-semibold);
+  font-family: 'Inter';
+  transition: background-color 150ms ease, transform 80ms ease;
+}
+.btn-primary:hover { background: var(--accent-hover); color: var(--text-on-accent); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-control);
+  padding: 8px 18px;
+  font-family: 'Inter';
+  transition: background-color 150ms ease, border-color 150ms ease, transform 80ms ease;
+}
+.btn-secondary:hover { background: var(--control-hover); border-color: var(--border-hover); }
+.btn-secondary:active { transform: translateY(1px); }
+.btn-danger {
+  background: transparent;
+  color: var(--status-danger);
+  border: 1px solid var(--status-danger);
+  border-radius: var(--radius-control);
+  padding: 8px 18px;
+  font-family: 'Inter';
+  transition: background-color 150ms ease, transform 80ms ease;
+}
+.btn-danger:active { transform: translateY(1px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  padding: 4px 8px;
+  font-family: 'Inter';
+  transition: color 150ms ease;
+}
+.btn-ghost:hover { color: var(--accent); }
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--accent);
+  padding: 0;
+  text-decoration: underline;
+  font-family: 'Inter';
+}
+
+/* Disabled -- .is-disabled is visual styling only, it never substitutes for
+   the real thing. Native `disabled`/`aria-disabled` stays mandatory on the
+   element itself alongside this class. */
+.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--control-disabled);
+}
+
+/* Form spacing -- consistent label/input/helper-text rhythm */
+.formGroup { margin-bottom: var(--space-4); }
+.formGroup label { display: block; color: var(--text-secondary); font-size: var(--font-sm); margin-bottom: var(--space-2); font-family: 'Inter'; }
+.formGroup .helperText { color: var(--text-muted); font-size: var(--font-xs); margin-top: var(--space-1); font-family: 'Inter'; }
+.formGroup.hasError input, .formGroup.hasError select { border-color: var(--status-danger); }
+
+/* Keyboard accessibility -- one rule, reused everywhere */
+.card a:focus-visible, .card button:focus-visible, .card input:focus-visible, .card select:focus-visible,
+.pill:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  transition: outline-offset 140ms ease;
+}

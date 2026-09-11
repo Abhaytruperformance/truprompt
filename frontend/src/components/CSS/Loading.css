@@ -1,0 +1,84 @@
+/* Signature "generating" moment -- a prompt being composed, not a generic
+   shimmer skeleton. Three lines pulse in sequence (a "writing" cadence),
+   not a continuous gradient sweep across the whole block. */
+.loadingGenerate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-8) 0;
+}
+
+.loadingGenerateLines {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 220px;
+}
+
+.loadingGenerateLine {
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: var(--border-hairline);
+    animation: loadingWrite 1.8s ease-in-out infinite;
+}
+.loadingGenerateLine:nth-child(1) { animation-delay: 0ms; }
+.loadingGenerateLine:nth-child(2) { animation-delay: 300ms; }
+.loadingGenerateLine:nth-child(3) { animation-delay: 600ms; }
+
+@keyframes loadingWrite {
+    0%, 60%, 100% { background: var(--border-hairline); }
+    20% { background: var(--accent-soft); }
+    30% { background: var(--accent); }
+}
+
+.loadingGenerateLabel {
+    color: var(--text-secondary);
+    font-family: 'Inter';
+    font-size: var(--font-sm);
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loadingGenerateLine {
+        animation: none;
+        background: var(--accent-soft);
+    }
+}
+
+/* Quiet, reused everywhere else -- deliberately restrained, the boldness
+   is spent on the generate moment above, not here. */
+.loadingInline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-6) 0;
+}
+
+.loadingInlineDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: loadingPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+    0%, 100% { opacity: 0.35; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.loadingInlineLabel {
+    color: var(--text-secondary);
+    font-family: 'Inter';
+    font-size: var(--font-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loadingInlineDot {
+        animation: none;
+        opacity: 0.8;
+    }
+}

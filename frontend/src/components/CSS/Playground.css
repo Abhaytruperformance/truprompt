@@ -1,0 +1,41 @@
+.playgroundPanel {
+    padding: var(--space-6);
+    color: var(--text-primary);
+    font-family: 'Inter';
+}
+
+.playgroundTextarea {
+    width: 100%;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-control);
+    padding: 10px 14px;
+    resize: vertical;
+    transition: border-color 150ms ease;
+}
+.playgroundTextarea:focus-visible {
+    outline: none;
+    border-color: var(--border-focus);
+}
+
+.playgroundModelList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.playgroundModelCheck {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+}
+
+.playgroundGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}

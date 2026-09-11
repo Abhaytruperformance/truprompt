@@ -1,0 +1,52 @@
+.teamPanel {
+    padding: var(--space-6);
+    color: var(--text-primary);
+    font-family: 'Inter';
+}
+
+.teamPanelRole {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+.teamTable {
+    border-collapse: collapse;
+}
+
+.teamTable th, .teamTable td {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--border-hairline);
+    color: var(--text-primary);
+}
+
+.teamTable th {
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-xs);
+}
+
+.teamTable tbody tr {
+    transition: background-color 120ms ease;
+}
+.teamTable tbody tr:hover {
+    background-color: var(--control-hover);
+}
+
+.teamTable select, .inviteForm select, .inviteForm input {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-control);
+    padding: 6px 10px;
+}
+
+.inviteList {
+    list-style: none;
+    padding: 0;
+    color: var(--text-secondary);
+}
+
+.inviteList li {
+    padding: var(--space-1) 0;
+}

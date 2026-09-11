@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+# Added by code-review-graph
+.code-review-graph/
+
+# Local tool configs -- personal/editor tooling, not app source
+.claude/
+.codebuddy/
+.gemini/
+.qoder/
+.vscode/
+.mcp.json
+opencode.jsonc
+
+# Debug/scratch artifacts from local dev sessions -- cookie dumps carry real
+# (if short-lived) session tokens and never belong in the repo
+*.log
+*cookies*.txt
+
+# One-off local demo-data generation, not a maintained seeding tool
+gen_50_prompts.py
+gen_50_results.json

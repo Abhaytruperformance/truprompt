@@ -1,0 +1,288 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.header-logo
+{
+  width: 40%!important;
+}
+ul.dropdown-menu.show {
+  margin-top: 3px;
+}
+.container-fluid.my-4.banner-container {
+  padding: 0;
+  margin: 0;
+}
+form.d-flex.align-items-center.p-3.bg-white.shadow.rounded.custom-search-bar {
+  padding: 2rem !important;
+}
+h6.heading-container {
+  font-size: 22px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+button.btn.btn-link.p-0.tgpt-list-butn {
+  text-align: left;
+  padding-right: 10px !important;
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-size: 17px;
+  line-height: 22px;
+  text-transform: capitalize;
+  color:#011617;
+}
+
+button#dropdownMenuButton {
+  background-color: #011617;
+}
+
+button.btn.btn-primary {
+  background-color: #011617;
+  border: 1px solid #011617;
+}
+span.badge.rounded-pill.count-searches {
+  background: #011617;
+}
+
+.col-md-9.right-result-site {
+  padding-left: 30px;
+}
+
+.button-copy
+{
+  margin-bottom: 20px;
+  padding-bottom: 20px!important;
+}
+.form-overlay.position-absolute.top-50.start-50.p-3.translate-middle.w-50.bg-white.shadow.rounded.align-items-center.form-container {
+  padding-bottom: 40px !important;
+}
+.error-message
+{
+  text-align: center;
+  color:#011617;
+}
+
+.left-sticky-sec {
+  position: sticky;
+  top: 0px;
+}
+h5.most-used-heading{
+  margin-bottom: 15px!important;
+}
+h5.most-used-heading{
+  background-color: #011617;
+  margin: 0px !important;
+  padding: 9px !important;
+  margin-top: 40px !important;
+  color: #fff;
+  border-radius: 4px 4px 0px 0px;
+  font-size: 17px;
+  padding-left: 16px !important;
+}
+h5.recent-search {
+  background-color: #011617!important;
+  margin: 0px !important;
+  padding: 9px !important;
+  margin-top: 40px !important;
+  color: #fff;
+  border-radius: 4px 4px 0px 0px;
+  font-size: 17px;
+  padding-left: 16px !important;
+}
+
+
+.left-sticky-sec {
+  margin-bottom: 20px;
+}
+
+button.btn.btn-info {
+  background-color: #011617bd;
+  color: #fff;
+  border: 1px solid #011617bd;
+}
+h6.prompt-title {
+  background-color: #011617!important;
+  padding: 10px;
+  margin: 0;
+  color: #fff;
+  border-radius: 4px 4px 0px 0px;
+}
+
+ul.list-group {
+  border-radius: 0px 0px 4px 4px !important;
+}
+button.btn.btn-secondary.dropdown-toggle.w-100.drop-button {
+  background-color: #011617;
+}
+label.form-check-label {
+  font-size: 14.5px !important;
+  color:#011617;
+}
+.form-check-input:checked {
+  background-color: #011617!important;
+  border-color: #011617!important;
+}
+.dropdown-item.active, .dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
+  background-color: #01161742!important;
+}
+
+i.fas.fa-star.text-warning.star-icon {
+  color: rgb(255 255 255) !important;
+}
+.container-fluid.my-4.banner-container.position-relative.banner-section {
+  margin-top: 0px !important;
+}
+.header-bar
+{
+  padding: 10px 0px!important;
+}
+.footer-bottom {
+  background-color: #011617 !important;
+  color: #fff;
+}
+h5.most-used-heading{
+margin-top: 5px !important;
+}
+.dropdown-toggle::after
+{
+  display:none!important;
+}
+.alert.alert-info.text-center {
+  position: unset;
+}
+.alert.alert-info.text-center {
+  background-color: #ffffff;
+  color: #011617;
+  border: 1px solid #011617;
+}
+button.btn.btn-secondary.dropdown-toggle.w-100.drop-button.select-dropdown {
+  background-color: #011617!important;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .form-container
+  {
+    width: 88% !important;
+  }
+  button.btn.btn-link.p-0.tgpt-list-butn {
+    text-align: left;
+    padding-right: 20px !important;
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-size: 15px;
+    line-height: 22px;
+    text-transform: capitalize;
+    color: #011617;
+  }
+  .container-fluid.my-4.banner-container.position-relative.banner-section{
+    margin-top: 0px !important;
+  }
+  h5.most-used-heading
+  {
+    margin-top: 0px!important;
+  }
+  .row.result-sec {
+    flex-direction: column-reverse;
+}
+
+input.form-control.me-2 {
+  display: inline-block;
+  vertical-align: middle;
+  width:100%;
+}
+button.btn.btn-primary.Search-button {
+  display: inline-block;
+  vertical-align: middle;
+}
+form.d-flex.align-items-center.p-3.custom-search-bar {
+  display: block !important;
+}
+.select-dropdown
+{
+  margin-bottom: 10px!important;
+}
+h6.heading-container {
+  font-size: 27px;
+  padding-bottom: 0px;
+  
+}
+.form-control
+{
+  font-size:14px!important;
+}
+.col-md-9.right-result-site {
+  padding-left: 12px;
+}
+.form-overlay.position-absolute.top-50.start-50.p-3.translate-middle.w-50.bg-white.shadow.rounded.align-items-center.form-container {
+  padding-bottom: 27px !important;
+}
+.container-fluid.my-4.banner-container.position-relative.banner-section {
+  height: 375px!important;
+}
+.left-sticky-sec {
+position: unset;
+}
+ul.dropdown-menu.show {
+  margin-top: -8px;
+}
+.header-logo {
+  width: 1000% !important;
+}
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container-fluid.my-4.banner-container.position-relative.banner-section {
+    margin-top: 0px!important;
+}
+.form-container {
+  width: 90%!important;
+}
+h6.heading-container {
+  font-size: 30px;
+  padding-bottom: 5px;
+}
+.col-md-3.left-side-section {
+  width: 40%;
+}
+.col-md-9.right-result-site {
+  width: 60%;
+  padding-left: 15px;
+}
+h5.most-used-heading {
+  margin-top: 7px!important;
+}
+.header-logo {
+  width: 1000% !important;
+}
+}
+
+@media only screen and (min-width: 1500px) 
+{
+  footer.container-fluid.py-3.text-center.border-top.footer-bottom {
+    margin-top: 10%;
+}
+}
+
+
+.form-container{
+  width: 60%;
+}
+
+#most-used, #recent-saved{
+  overflow-y: scroll;
+  max-height: 40vh;
+}

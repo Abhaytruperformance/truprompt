@@ -1,0 +1,27 @@
+.analyticsPanel {
+    padding: var(--space-6);
+    color: var(--text-primary);
+    font-family: 'Inter';
+}
+
+.analyticsSparkline {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 80px;
+}
+
+.analyticsBar {
+    flex: 1;
+    min-width: 3px;
+    background: var(--accent);
+    border-radius: 2px 2px 0 0;
+    min-height: 2px;
+}
+
+.analyticsPromptCell {
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

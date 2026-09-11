@@ -1,0 +1,217 @@
+.sideBarDiv{
+    height: 100%;
+    position: relative;
+    background-color: var(--bg-sidebar);
+    padding: var(--space-8) var(--space-6);
+    z-index: 9;
+    overflow-y: auto;
+}
+
+.navGroup {
+    margin-bottom: var(--space-6);
+}
+
+.navGroupLabel {
+    color: var(--text-muted);
+    font-family: 'Inter';
+    font-size: var(--font-micro);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 var(--space-2);
+    padding: 0 var(--space-2);
+}
+
+/* Shared active/hover treatment for every clickable nav row -- accent bar +
+   tinted background + stronger text, NOT elevation (an active nav item
+   isn't an overlay). */
+.navItem {
+    border-radius: var(--radius-control);
+    border-left: 3px solid transparent;
+    transition: background-color 120ms ease, border-color 120ms ease;
+}
+.navItem:hover {
+    background: var(--control-hover);
+}
+.navItem--active {
+    background: var(--accent-soft);
+    border-left-color: var(--accent);
+}
+.navItem--active .newChatText,
+.navItem--active .SideBarTitle {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.newChatDiv{
+    padding: var(--space-2) var(--space-4);
+    margin-bottom: var(--space-5);
+    cursor: pointer;
+}
+.userProfile{
+    border-radius: var(--radius-control);
+    background: var(--bg-surface);
+    margin-bottom: 0;
+    margin-top: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+}
+.profileName{
+    color: var(--text-primary);
+    font-family: Inter;
+    font-size: var(--font-md);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115%;
+}
+.profileEmail{
+    color: var(--text-secondary);
+    font-family: 'Inter';
+    font-size: var(--font-xs);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115%;
+    word-break: break-word;
+    text-align: left;
+}
+
+.newChatText{
+    color: var(--text-primary);
+    font-family: 'Inter';
+    font-size: var(--font-md);
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+hr{
+    margin: var(--space-2) 0;
+    border: none;
+    border-top: 1px solid var(--border-hairline);
+}
+
+.accordion-button {
+    padding: var(--space-2) var(--space-4);
+    background-color: transparent;
+    &::after{
+        margin-left: 6px;
+        background-image: url('../../assets/accordionIcon.svg');
+    }
+    &:not(.collapsed){
+        background-color: transparent;
+        box-shadow: none;
+    }
+    &:not(.collapsed)::after{
+        background-image: url('../../assets/accordionIcon.svg');
+        transform:rotate(-180deg);
+    }
+}
+
+.accordion-body{
+    padding-left: var(--space-8);
+    padding-top: 0;
+    max-height: 205px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(245, 246, 247, 0.06);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--border-hover);
+        border-radius: 10px;
+    }
+}
+
+.SideBarTitle{
+    color: var(--text-primary);
+    font-family: 'Inter';
+    font-size: var(--font-section-title);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 115%;
+    margin: 0;
+    padding: var(--space-2) var(--space-4);
+    cursor: pointer;
+}
+
+.historyDiv{
+    padding: 0;
+    margin-bottom: var(--space-1);
+}
+
+.list-group{
+    gap: var(--space-2);
+}
+
+.list-item button{
+    color: var(--text-secondary);
+    font-family: 'Inter';
+    font-size: var(--font-base);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 115%;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    transition: color 120ms ease;
+    &:hover, &:active{
+        color: var(--text-primary) !important;
+    }
+}
+
+.custom-popover {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border: none;
+}
+
+.custom-popover .popover-body {
+    padding: var(--space-2);
+}
+
+.promptFilters input, .promptFilters select{
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-control);
+    padding: 4px 8px;
+    font-size: var(--font-xs);
+    width: 100%;
+    transition: border-color 120ms ease;
+    &:hover { border-color: var(--border-hover); }
+    &:focus-visible { border-color: var(--border-focus); }
+}
+
+.departmentGroupTitle{
+    color: var(--text-muted);
+    font-family: 'Inter';
+    font-size: var(--font-micro);
+    text-transform: uppercase;
+    margin: var(--space-3) 0 var(--space-1);
+}
+
+.emptyList{
+    color: var(--text-secondary);
+    font-family: 'Inter';
+    font-size: var(--font-base);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 115%;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+@media (max-width: 1279px) and (min-width: 1024px) {
+    .sideBarDiv { padding: var(--space-6) var(--space-4); }
+}

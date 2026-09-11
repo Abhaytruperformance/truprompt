@@ -1,0 +1,117 @@
+.userPrompt{
+    color: var(--text-primary);
+    font-family: 'Inter';
+    font-size: var(--font-md);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115%;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-control);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-hairline);
+    margin-bottom: var(--space-10);
+}
+.singlePrompt .result-container {
+    @media (min-width:768px) {
+        overflow-y: scroll;
+    }
+}
+.result-container{
+    max-width: 960px;
+    margin-bottom: var(--space-12);
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(245, 246, 247, 0.06);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--border-hover);
+        border-radius: 10px;
+    }
+    @media (max-width:768px){
+        margin-bottom: var(--space-8);
+        overflow-y: auto;
+    }
+}
+
+.result-container:last-child {
+    margin-bottom: 0;
+}
+
+.promptResultDiv{
+    position: relative;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-card);
+    padding: var(--space-6);
+}
+
+.promptResultTitle{
+    color: var(--text-primary);
+    font-family: 'Inter';
+    font-size: var(--font-md);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115%;
+}
+
+.promptResultContent{
+    color: var(--text-secondary);
+    font-family: 'Inter';
+    font-size: var(--font-md);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--line-height-normal);
+    overflow: hidden;
+    white-space: pre-line;
+}
+
+.divider{
+    background: var(--border-hairline);
+    height: 1px;
+    margin: var(--space-6) 0;
+}
+
+.actionButtonDiv{
+    border-radius: var(--radius-control);
+    background: var(--bg-page);
+    padding: var(--space-2);
+    gap: var(--space-4);
+    width: fit-content;
+}
+.actionButtonDiv img {
+    transition: opacity 120ms ease;
+    cursor: pointer;
+}
+.actionButtonDiv img:hover {
+    opacity: 0.7;
+}
+
+.ratingControl {
+    color: var(--text-muted);
+}
+
+.ratingStar {
+    font-size: var(--font-page-title);
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 120ms ease;
+}
+
+.ratingStar:hover {
+    color: var(--status-warning);
+}
+
+.ratingStarFilled {
+    color: var(--status-warning);
+}
+
+.ratingSummary {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    margin-left: 6px;
+}

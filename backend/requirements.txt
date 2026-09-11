@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+supabase
+msal
+workos
+pyjwt
+openai
+httpx
+psycopg2-binary
+mcp==1.28.1
+python-multipart
+pypdf
+python-docx
+beautifulsoup4

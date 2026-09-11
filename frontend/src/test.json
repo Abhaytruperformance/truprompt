@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-AfohDUw8y32sdTM7JeCRQwFEGPj1H",
+  "object": "chat.completion",
+  "created": 1734529687,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Optimizer: \n- Ensure clarity on the purpose of using SSH keys with GitHub.\n- Highlight the importance of security and authentication in version control.\n- Emphasize the steps involved in generating and adding SSH keys.\n- Consider the user’s level of technical expertise and familiarity with command line tools.\n- Provide context on common issues or errors that may arise during the process.\n\n|\nPrompt: Craft a comprehensive guide that explains the process of generating and configuring SSH keys for use with GitHub. Start by detailing the significance of SSH keys in providing a secure and efficient method for authenticating with GitHub repositories. Include step-by-step instructions for generating an SSH key pair, adding the public key to a GitHub account, and configuring the local SSH agent. Address potential pitfalls, such as incorrect file permissions or common error messages, and suggest troubleshooting tips for users who may encounter issues. Tailor the explanation to accommodate both beginners and more experienced users, incorporating best practices for maintaining security throughout the process.",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "completion_tokens": 197,
+    "total_tokens": 345,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "system_fingerprint": "fp_6fc10e10eb"
+}
