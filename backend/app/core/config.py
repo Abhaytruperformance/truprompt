@@ -50,6 +50,7 @@ class Settings(BaseSettings):
     # models share a provider-side quota, not a per-user one) -- a different
     # free model on a separate quota keeps generation working either way.
     OPENROUTER_FALLBACK_MODEL: str = "openai/gpt-oss-20b:free"
+    OPENROUTER_FALLBACK_MODELS: str = "openrouter/free"
     # Curated model picker (multi-model/Playground) -- comma-separated, same
     # pattern as CORS_ORIGINS below. Deliberately not "every OpenRouter model"
     # -- a short, curated list matches this product's "focused tool" positioning
@@ -65,7 +66,12 @@ class Settings(BaseSettings):
     def openrouter_available_models_list(self) -> list[str]:
         if self.OPENROUTER_AVAILABLE_MODELS.strip():
             return [m.strip() for m in self.OPENROUTER_AVAILABLE_MODELS.split(",") if m.strip()]
-        return list(dict.fromkeys([self.OPENROUTER_MODEL, self.OPENROUTER_FALLBACK_MODEL]))
+        return list(dict.fromkeys([self.OPENROUTER_MODEL, *self.openrouter_fallback_models_list]))
+
+    @property
+    def openrouter_fallback_models_list(self) -> list[str]:
+        configured = [m.strip() for m in self.OPENROUTER_FALLBACK_MODELS.split(",") if m.strip()]
+        return list(dict.fromkeys([*configured, self.OPENROUTER_FALLBACK_MODEL]))
 
     # Resend (resend.com) -- sends invitation emails. Placeholder until a real
     # API key exists; send_invitation_email() logs instead of sending while it is.

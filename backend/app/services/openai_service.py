@@ -14,7 +14,7 @@ _client = (
     else OpenAI(api_key=settings.OPENAI_API_KEY)
 )
 _MODEL = settings.OPENROUTER_MODEL if settings.use_openrouter else "gpt-4o-mini"
-_FALLBACK_MODEL = settings.OPENROUTER_FALLBACK_MODEL if settings.use_openrouter else None
+_FALLBACK_MODELS = settings.openrouter_fallback_models_list if settings.use_openrouter else []
 
 _LABEL_RE = re.compile(r"(Optimizer: |Prompt: )")
 _JSON_BLOCK_RE = re.compile(r"\{.*\}", re.DOTALL)
@@ -155,7 +155,7 @@ def generate_prompt(
     start = time.perf_counter()
     try:
         completion = _client.chat.completions.create(model=requested_model, messages=messages, temperature=0.7)
-    except openai.RateLimitError:
+    except (openai.RateLimitError, openai.NotFoundError):
         # Free-tier models share a provider-side quota, not a per-user one --
         # a different model on a separate quota keeps generation working
         # instead of failing the whole request when one provider is busy.
@@ -163,13 +163,25 @@ def generate_prompt(
         # each other) means "tell me it failed" beats "silently show me a
         # different model's output under this card" -- deterministic model
         # identity matters more than availability when the point is comparison.
-        if not allow_fallback or not _FALLBACK_MODEL or _FALLBACK_MODEL == requested_model:
+        if not allow_fallback:
             raise
-        completion = _client.chat.completions.create(
-            model=_FALLBACK_MODEL, messages=messages, temperature=0.7
-        )
-        model_used = _FALLBACK_MODEL
-        fallback_used = True
+        last_error = None
+        for fallback_model in _FALLBACK_MODELS:
+            if fallback_model == requested_model:
+                continue
+            try:
+                completion = _client.chat.completions.create(
+                    model=fallback_model, messages=messages, temperature=0.7
+                )
+                model_used = fallback_model
+                fallback_used = True
+                break
+            except openai.APIError as exc:
+                last_error = exc
+        else:
+            if last_error:
+                raise last_error
+            raise
     model_latency_ms = int((time.perf_counter() - start) * 1000)
 
     content = completion.choices[0].message.content or ""
